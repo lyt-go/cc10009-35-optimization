@@ -209,6 +209,18 @@ class ScrapeapiEntry(BaseModel):
     field_6: str | None = None  # 速率限制
     field_7: str | None = None  # 返回格式
 
+class DataversionEntry(BaseModel):
+    """数据版本明细结构。"""
+
+    field_0: str | None = None  # 版本编号
+    field_1: str | None = None  # 数据源标识
+    field_2: str | None = None  # 当前代际
+    field_3: str | None = None  # 依赖版本
+    field_4: str | None = None  # 部署环境
+    field_5: str | None = None  # 数据库连接
+    field_6: str | None = None  # 兼容状态
+    field_7: str | None = None  # 清单条目数
+
 class DatasampleEntry(BaseModel):
     """抽样方案明细结构。"""
 

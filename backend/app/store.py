@@ -10,13 +10,21 @@ from app.seed import SEED_ROWS
 
 
 class Store:
+    """内存表仓库：业务模块表 + 采集API取数链路的运行时表。
+
+    运行时表（缓存快照、响应记录、限流窗口、换代事件）服务于取数链路，
+    不算业务模块，运营概览里不单独成卡。
+    """
+
+    RUNTIME_TABLES = {"scrapeapi_cache", "scrapeapi_response", "scrapeapi_window", "dataversion_event"}
+
     def __init__(self) -> None:
         self._tables: dict[str, list[dict[str, Any]]] = {
             name: [dict(row) for row in rows] for name, rows in SEED_ROWS.items()
         }
 
     def module_names(self) -> list[str]:
-        return sorted(self._tables)
+        return sorted(name for name in self._tables if name not in self.RUNTIME_TABLES)
 
     def rows(self, module: str) -> list[dict[str, Any]]:
         return self._tables.setdefault(module, [])

@@ -64,6 +64,7 @@ npm run dev
 | 增量标记 | `incrementmark` | 增量水位 | 水位编号、目标源、增量字段名 |
 | 配置同步 | `configsync` | 同步任务 | 任务编号、源节点、目标节点 |
 | 采集API | `scrapeapi` | API定义 | API编号、API名称、请求路径 |
+| 数据版本 | `dataversion` | 数据版本 | 版本编号、数据源标识、当前代际 |
 | 数据抽样 | `datasample` | 抽样方案 | 方案编号、数据源、抽样方式 |
 | 采集告警 | `alertpolicy` | 告警策略 | 策略编号、监控指标、触发条件 |
 
